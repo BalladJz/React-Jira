@@ -1,8 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import qs from "qs";
 
 import { List } from "./List";
 import { SearchPanel } from "./SearchPanel";
+import { cleanObject } from "../utils";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -17,7 +19,9 @@ export const ProjectList = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:9001/projects`).then(async (res) => {
+    fetch(
+      `http://localhost:9001/projects?${qs.stringify(cleanObject(param))}`,
+    ).then(async (res) => {
       if (res.ok) {
         setList(await res.json());
         // console.log(res.json());
