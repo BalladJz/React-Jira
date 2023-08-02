@@ -1,20 +1,7 @@
-import { useEffect, useState } from "react";
+import React from "react";
 
-export const SearchPanel = () => {
-  const [param, setParam] = useState({
-    name: "",
-    personId: "",
-  });
 
-  const [users, setUsers] = useState([]);
-  const [list, setList] = useState([]);
-
-  useEffect(() => {
-    fetch("").then((res) => {
-      console.log(res);
-    });
-  }, [param]);
-
+export const SearchPanel = ({ param, setParam, users }) => {
   const handleChange = (evt) => {
     console.log(evt.target.value);
     setParam({
