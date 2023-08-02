@@ -2,9 +2,12 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import { List } from "./List";
-import { SearchPanel } from "./SearchPannel";
+import { SearchPanel } from "./SearchPanel";
+
+const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectList = () => {
+  console.log(apiUrl);
   const [param, setParam] = useState({
     name: "",
     personId: "",
