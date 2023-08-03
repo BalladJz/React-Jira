@@ -1,4 +1,4 @@
-#pnpm run json-server Open [http://localhost:3000](http://localhost:9001)
+# pnpm run json-server Open [http://localhost:3000](http://localhost:9001)
 
 # Getting Started with Create React App
 
