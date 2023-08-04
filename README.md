@@ -1,20 +1,26 @@
-# pnpm run json-server start local service(http://localhost:9001)
+### `git clone https://github.com/BalladJz/React-Jira.git` 
 
-# Getting Started with Create React App
+克隆代码至本地
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### `pnpm i`
 
-In the project directory, you can run:
+安装相关的依赖项
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `pnpm run start`
+
+在开发你是运行 本地浏览器中打开 (http://localhost:3000)
+
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+
+### `pnpm run json-server` 
+
+在本地启动端口端口为9001的服务 http://localhost:9001
+
 
 ### `npm test`
 
