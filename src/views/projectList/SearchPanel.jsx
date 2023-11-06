@@ -2,7 +2,7 @@ import React from "react";
 
 export const SearchPanel = ({ param, setParam, users }) => {
   const handleChange = (evt) => {
-    console.log(evt.target.value);
+    // console.log(evt.target.value);
     setParam({
       ...param,
       name: evt.target.value,

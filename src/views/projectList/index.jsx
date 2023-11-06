@@ -9,32 +9,33 @@ import { cleanObject } from "../utils";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const ProjectList = () => {
-  console.log(apiUrl);
+  // param 指的是 输入框输入的名称以及下拉框的值
   const [param, setParam] = useState({
     name: "",
     personId: "",
   });
-
+  // 下拉框选择的选项
   const [users, setUsers] = useState([]);
+  // 渲染的列表
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `http://localhost:9001/projects?${qs.stringify(cleanObject(param))}`,
-    ).then(async (res) => {
-      if (res.ok) {
-        setList(await res.json());
-        // console.log(res.json());
-      }
-    });
+    fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(param))}`).then(
+      async (res) => {
+        if (res.ok) {
+          setList(await res.json());
+        }
+      },
+    );
   }, [param]);
 
   useEffect(() => {
-    fetch("http://localhost:9001/users").then(async (res) => {
+    fetch(`${apiUrl}/users`).then(async (res) => {
       if (res.ok) {
         setUsers(await res.json());
       }
     });
+    // ! 当组件初始化时，会执行一次
   }, []);
 
   return (
