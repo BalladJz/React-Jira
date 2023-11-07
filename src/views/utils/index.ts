@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 
 // 对参数为零进行处理
-export const isFalsy = (value) => (value === 0 ? true : !!value);
+export const isFalsy = (value: any) => (value === 0 ? true : !!value);
 
 // 在一个函数里，改变传入函数本身是不好的
-export const cleanObject = (object) => {
+export const cleanObject = (object: Object) => {
   const result = { ...object };
   Object.keys(result).forEach((key) => {
+    // @ts-ignore
     const value = result[key];
     if (!isFalsy(value)) {
+      // @ts-ignore
       delete result[key];
     }
   });
@@ -16,14 +18,14 @@ export const cleanObject = (object) => {
 };
 
 /** 对 useEffect初始化时进行封装 */
-export const useMount = (callback) => {
+export const useMount = (callback: () => void) => {
   useEffect(() => {
     callback();
   }, []);
 };
 
 /** 封装输入框的防抖 */
-export const useDebounce = (value, delay) => {
+export const useDebounce = (value: any, delay: number) => {
   // 准备一个debounce变量
   const [debounceValue, setDebounceValue] = useState(value);
 

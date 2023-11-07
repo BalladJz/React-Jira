@@ -1,7 +1,21 @@
 import React from "react";
 
-export const SearchPanel = ({ param, setParam, users }) => {
-  const handleChange = (evt) => {
+export type Users = {
+  id: number;
+  name: string;
+};
+
+type SearchPanelProps = {
+  param: {
+    name: string;
+    personId: string;
+  };
+  users: Array<Users>;
+  setParam: (param: SearchPanelProps["param"]) => void;
+};
+
+export const SearchPanel = ({ param, setParam, users }: SearchPanelProps) => {
+  const handleChange = (evt: any) => {
     // console.log(evt.target.value);
     setParam({
       ...param,

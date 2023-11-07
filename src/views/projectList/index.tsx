@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import qs from "qs";
+import * as qs from "qs";
 
 import { List } from "./List";
 import { SearchPanel } from "./SearchPanel";
@@ -14,7 +14,7 @@ export const ProjectList = () => {
     name: "",
     personId: "",
   });
-  const debounceParam = useDebounce(param, 2000);
+  const debounceParam = useDebounce(param, 500);
   // 下拉框选择的选项
   const [users, setUsers] = useState([]);
   // 渲染的列表
