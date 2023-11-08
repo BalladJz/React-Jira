@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-const useArray = (array: any[]) => {
-  const [value, setValue] = useState(array);
-  const add = (addValue: any) => {
+const useArray = <T>(initialValue: T[]) => {
+  const [value, setValue] = useState(initialValue);
+  const add = (addValue: T) => {
     setValue([...value, addValue]);
   };
 
   const removeIndex = (index: number) => {
     const remove = value.filter((v, i) => i !== index);
-    setValue([...remove]);
+    setValue(remove);
   };
 
   const clear = () => {
