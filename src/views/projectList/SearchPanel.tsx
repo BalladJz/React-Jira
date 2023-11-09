@@ -3,6 +3,10 @@ import React from "react";
 export type Users = {
   id: number;
   name: string;
+  email: string;
+  title: string;
+  organization: string;
+  token: string;
 };
 
 type SearchPanelProps = {
