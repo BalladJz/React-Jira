@@ -2,14 +2,16 @@ import React from "react";
 import "./App.css";
 import { ProjectList } from "views/projectList/index";
 import TryUseArray from "views/tryUseArray/index";
-import LoginPage from "views/login/index";
+import { useAuth } from "context/auth-context";
+import { UnauthenticatedApp } from "views/unauthenticated-app";
+import { AuthenticatedApp } from "authenticated-app";
 
 function App() {
+  const { user } = useAuth();
+
   return (
     <div className="App">
-      {/* <ProjectList /> */}
-      {/* <TryUseArray /> */}
-      <LoginPage />
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </div>
   );
 }
