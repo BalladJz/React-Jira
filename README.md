@@ -1,26 +1,21 @@
-### `git clone https://github.com/BalladJz/React-Jira.git` 
+### `git clone https://github.com/BalladJz/React-Jira.git`
 
 克隆代码至本地
-
 
 ### `pnpm i`
 
 安装相关的依赖项
 
-
 ### `pnpm run start`
 
-在开发你是运行 本地浏览器中打开 (http://localhost:3000)
-
+在开发你是运行 本地浏览器中打开 (http://localhost:3000)
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### `pnpm run json-server`
 
-### `pnpm run json-server` 
-
-在本地启动端口端口为9001的服务 http://localhost:9001
-
+在本地启动端口为9001的服务 http://localhost:9001
 
 ### `npm test`
 
