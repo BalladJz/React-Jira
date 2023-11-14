@@ -15,7 +15,7 @@ export const handleUserResponse = ({ user }: { user: Users }) => {
 
 /** 登录 并且 调用存储token的方法 */
 export const login = (data: { username: string; password: string }) => {
-  return fetch(`${apiUrl}/login `, {
+  return fetch(`${apiUrl}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ export const login = (data: { username: string; password: string }) => {
 
 /** 注册 并且 调用存储token的方法 */
 export const register = (data: { username: string; password: string }) => {
-  return fetch(`${apiUrl}/register `, {
+  return fetch(`${apiUrl}/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
