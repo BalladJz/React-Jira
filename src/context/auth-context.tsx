@@ -1,6 +1,8 @@
 import React, { ReactNode, useState } from "react";
 import * as auth from "auth-provider";
 import { Users } from "views/projectList/SearchPanel";
+import { http } from "views/utils/http";
+import { useMount } from "views/utils";
 
 type AuthForm = {
   username: string;
@@ -12,6 +14,17 @@ type _AuthContext = {
   login: (form: AuthForm) => Promise<void>;
   register: (form: AuthForm) => Promise<void>;
   logout: () => Promise<void>;
+};
+
+// 在登录装填下 页面刷新 会退出至登录页 所以 初始化User
+const bootstrapUser = async () => {
+  let user = null;
+  const token = auth.getToken();
+  if (token) {
+    const data = await http("me", { token });
+    user = data.user;
+  }
+  return user;
 };
 
 /** React.createContext 创建 AuthContext 组件 */
@@ -30,6 +43,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     auth.register(form).then((user) => serUser(user));
 
   const logout = () => auth.logout().then(() => serUser(null));
+
+  useMount(() => {
+    bootstrapUser().then((user) => serUser(user));
+  });
 
   return (
     <AuthContext.Provider
